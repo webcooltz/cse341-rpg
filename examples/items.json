@@ -1,0 +1,14 @@
+[
+    {
+    "name": "sword of js",
+    "level": 0,
+    "rarity": "common",
+    "amount": 2
+    },
+    {
+    "name": "sword of node js",
+    "level": 0,
+    "rarity": "uncommon",
+    "amount": 1
+    }
+]

@@ -1,0 +1,21 @@
+db.contacts.insertMany(
+   [{
+  "firstName": "Tyler",
+  "lastName": "Tucker",
+  "email": "tylertucker55@gmail.com",
+  "favoriteColor": "red",
+  "birthday": "09-14-1994"
+},{
+  "firstName": "Jack",
+  "lastName": "Nicholson",
+  "email": "heresjohnny@gmail.com",
+  "favoriteColor": "red",
+  "birthday": "04-22-1937"
+},{
+  "firstName": "Michael",
+  "lastName": "Keaton",
+  "email": "therealbatman@gmail.com",
+  "favoriteColor": "black",
+  "birthday": "09-05-1951"
+}]
+)
