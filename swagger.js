@@ -5,7 +5,7 @@ const doc = {
         title: "RPG",
         description: "RPG API for BYUI CSE 341"
     },
-    host: "cse341-psei.onrender.com",
+    host: "rpg-pvd4.onrender.com",
     schemes: ["https"]
 };
 

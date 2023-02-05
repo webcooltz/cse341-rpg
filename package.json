@@ -1,7 +1,7 @@
 {
-  "name": "cse341",
+  "name": "cse341-rpg",
   "version": "1.0.0",
-  "description": "for my cse341 class",
+  "description": "rpg api for my cse341 class",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webcooltz/cse341.git"
+    "url": "git+https://github.com/webcooltz/cse341-rpg.git"
   },
   "author": "webcooltz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/webcooltz/cse341/issues"
+    "url": "https://github.com/webcooltz/cse341-rpg/issues"
   },
-  "homepage": "https://github.com/webcooltz/cse341#readme",
+  "homepage": "https://github.com/webcooltz/cse341-rpg#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
     "connect": "^3.2.0",

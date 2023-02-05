@@ -5,7 +5,7 @@
     "description": "RPG API for BYUI CSE 341",
     "version": "1.0.0"
   },
-  "host": "cse341-psei.onrender.com",
+  "host": "rpg-pvd4.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
