@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const characterSchema = mongoose.Schema({
     charName: { type: String, required: true },
-    level: { type: Number, required: true },
+    level: { type: Number, required: false },
     money: { type: Number, required: false },
     createdAt: { type: String, required: false },
     lastPlayed: { type: String, required: false },

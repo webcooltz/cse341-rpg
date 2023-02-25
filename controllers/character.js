@@ -1,6 +1,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const Character = require('../models/character');
+// const validation = require('../validation');
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('characters').find();
@@ -20,30 +21,17 @@ const getSingle = async (req, res) => {
 };
 
 const createCharacter = async (req, res) => {
-  const character = new Character({
-    charName: req.body.charName,
-    level: req.body.level,
-    money: req.body.money,
-    createdAt: req.body.createdAt,
-    lastPlayed: req.body.lastPlayed,
-    owner: req.body.owner,
-    location: req.body.location
-  });
-  const response = await mongodb.getDb().db().collection('characters').insertOne(character);
-  if (response.acknowledged) {
-    res.status(201).json({
-      response: response,
-      message: "Created new Character successfully.",
-      character: character
-    });
-  } else {
-      res.status(500).json(response.error || 'Some error occurred while creating the character.');
+  if (!req.body) {
+    res.status(400).send({ message: "Request body cannot be empty" });
+    return;
   }
-  };
-  
-  const updateCharacter = async (req, res) => {
-    const charId = new ObjectId(req.params.id);
-    const character = {
+  // try {
+    // const charNameCheck = validation.characterValidation(req.body);
+    // if (charNameCheck.error) {
+    //   res.status(400).send({ message: charNameCheck.error });
+    //   return;
+    // }
+    const character = new Character({
       charName: req.body.charName,
       level: req.body.level,
       money: req.body.money,
@@ -51,21 +39,56 @@ const createCharacter = async (req, res) => {
       lastPlayed: req.body.lastPlayed,
       owner: req.body.owner,
       location: req.body.location
-    };
-    const response = await mongodb
-      .getDb()
-      .db()
-      .collection('characters')
-      .replaceOne({ _id: charId }, character);
-    console.log(response);
-    if (response.modifiedCount > 0) {
-      res.status(204).json({
+    });
+    const response = await mongodb.getDb().db().collection('characters').insertOne(character);
+    if (response.acknowledged) {
+      res.status(201).json({
         response: response,
-        message: "Updated character successfully.",
+        message: "Created new Character successfully.",
         character: character
       });
     } else {
-      res.status(500).json(response.error || 'Some error occurred while updating the character.');
+        res.status(500).json(response.error || 'Some error occurred while creating the character.');
+    }
+  // }
+  // catch (err) {
+  //   res.status(500).json(err);
+  // }
+};
+  
+  const updateCharacter = async (req, res) => {
+    if (!req.body) {
+      res.status(400).send({ message: "Request body cannot be empty" });
+      return;
+    }
+    try {
+      const charId = new ObjectId(req.params.id);
+      const character = {
+        charName: req.body.charName,
+        level: req.body.level,
+        money: req.body.money,
+        createdAt: req.body.createdAt,
+        lastPlayed: req.body.lastPlayed,
+        owner: req.body.owner,
+        location: req.body.location
+      };
+      const response = await mongodb
+        .getDb()
+        .db()
+        .collection('characters')
+        .replaceOne({ _id: charId }, character);
+      console.log(response);
+      if (response.modifiedCount > 0) {
+        res.status(204).json({
+          response: response,
+          message: "Updated character successfully.",
+          character: character
+        });
+      } else {
+        res.status(500).json(response.error || 'Some error occurred while updating the character.');
+      }
+    } catch (err) {
+      res.status(500).json(err);
     }
   };
   

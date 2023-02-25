@@ -2,13 +2,13 @@
     {
     "name": "sword of js",
     "level": 0,
-    "rarity": "common",
+    "rarity": 1,
     "amount": 2
     },
     {
     "name": "sword of node js",
     "level": 0,
-    "rarity": "uncommon",
+    "rarity": 2,
     "amount": 1
     }
 ]

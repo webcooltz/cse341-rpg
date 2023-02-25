@@ -39,8 +39,66 @@ content-type: application/json
 ### DELETE character
 DELETE http://localhost:3000/characters/63d855468ac64a480e3550cd HTTP/1.1
 
-### GET all items
+### --------- Users ----------
+
+### GET all users
+GET http://localhost:3000/users
+### GET 1 user
+GET http://localhost:3000/users/63fa97bc8624a3a4b548a6f2
+### POST - create user
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "tdog",
+  "lastName": "turner",
+  "email": "tdog@dog.com",
+  "password": "dog"
+}
+### PUT - update contact
+PUT http://localhost:3000/users/63fa9e14e1abf66746ee0f16 HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "kdog",
+  "lastName": "lamar",
+  "email": "kdog@dog.com",
+  "password": "dog1"
+}
+### DELETE user
+DELETE http://localhost:3000/users/63fa9e14e1abf66746ee0f16 HTTP/1.1
+
 GET http://localhost:3000/items
+### GET 1 item
+GET http://localhost:3000/items/63def425bb166f3e221a6ef3
+### POST - create item
+POST http://localhost:3000/items HTTP/1.1
+content-type: application/json
+
+{
+  "charName": "mori",
+  "level": 1,
+  "money": 1000,
+  "createdAt": "02/02/2023",
+  "lastPlayed": "02/03/2023",
+  "owner": "tylertucker55",
+  "location": "1, 1, 1"
+}
+### PUT - update contact
+PUT http://localhost:3000/items/63d853e32ce97a2ac274bbd9 HTTP/1.1
+content-type: application/json
+
+{
+  "charName": "mori2",
+  "level": 1,
+  "money": 1000,
+  "createdAt": "02/02/2023",
+  "lastPlayed": "02/03/2023",
+  "owner": "tylertucker55",
+  "location": "1, 1, 1"
+}
+### DELETE item
+DELETE http://localhost:3000/items/63d855468ac64a480e3550cd HTTP/1.1
 
 ### ----------------- PROD ------------------ ###
 
