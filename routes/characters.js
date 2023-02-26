@@ -1,8 +1,6 @@
 const express = require('express');
 var router = express.Router();
 const characterController = require('../controllers/character');
-// const validation = require('../validation');
-// const {check} = require('express-validator');
 
 router.get('/', characterController.getAll);
 

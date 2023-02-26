@@ -6,11 +6,27 @@ GET http://localhost:3000
 GET http://localhost:3000/404
 ### GET API swagger docs
 GET http://localhost:3000/api-docs
+
+### --------- Characters ----------
+
 ### GET all characters
 GET http://localhost:3000/characters
 ### GET 1 character
 GET http://localhost:3000/characters/63def425bb166f3e221a6ef3
-### POST - create character
+### POST - create character (bad schema)
+POST http://localhost:3000/characters HTTP/1.1
+content-type: application/json
+
+{
+  "charName": "adasda",
+  "level": 71,
+  "money": 10000,
+  "createdAt": "02/02/2023",
+  "lastPlayed": "02/03/2023",
+  "owner": "webcooltz",
+  "location": "1, 1, 1"
+}
+### POST - create character (good schema)
 POST http://localhost:3000/characters HTTP/1.1
 content-type: application/json
 
@@ -20,11 +36,11 @@ content-type: application/json
   "money": 1000,
   "createdAt": "02/02/2023",
   "lastPlayed": "02/03/2023",
-  "owner": "tylertucker55",
+  "owner": "webcooltz",
   "location": "1, 1, 1"
 }
-### PUT - update contact
-PUT http://localhost:3000/characters/63d853e32ce97a2ac274bbd9 HTTP/1.1
+### PUT - update character
+PUT http://localhost:3000/characters/63faa4c937b5287f6aa81a37 HTTP/1.1
 content-type: application/json
 
 {
@@ -45,7 +61,7 @@ DELETE http://localhost:3000/characters/63d855468ac64a480e3550cd HTTP/1.1
 GET http://localhost:3000/users
 ### GET 1 user
 GET http://localhost:3000/users/63fa97bc8624a3a4b548a6f2
-### POST - create user
+### POST - create user (bad password)
 POST http://localhost:3000/users HTTP/1.1
 content-type: application/json
 
@@ -55,8 +71,28 @@ content-type: application/json
   "email": "tdog@dog.com",
   "password": "dog"
 }
-### PUT - update contact
-PUT http://localhost:3000/users/63fa9e14e1abf66746ee0f16 HTTP/1.1
+### POST - create user (bad schema)
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "t",
+  "lastName": "turner",
+  "email": "tdog@dog.com",
+  "password": "Hell0world!"
+}
+### POST - create user (good password/schema)
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "tdog",
+  "lastName": "turner",
+  "email": "tdog@dog.com",
+  "password": "Hell0world!"
+}
+### PUT - update user (bad password)
+PUT http://localhost:3000/users/63faa1eedde84efcb205426b HTTP/1.1
 content-type: application/json
 
 {
@@ -65,55 +101,50 @@ content-type: application/json
   "email": "kdog@dog.com",
   "password": "dog1"
 }
+### PUT - update user (good password)
+PUT http://localhost:3000/users/63faa1eedde84efcb205426b HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "kdog",
+  "lastName": "lamar",
+  "email": "kdog@dog.com",
+  "password": "Hell0world!"
+}
 ### DELETE user
-DELETE http://localhost:3000/users/63fa9e14e1abf66746ee0f16 HTTP/1.1
+DELETE http://localhost:3000/users/63fab0337a6e1fd5a4d8d983 HTTP/1.1
 
-GET http://localhost:3000/items
-### GET 1 item
-GET http://localhost:3000/items/63def425bb166f3e221a6ef3
-### POST - create item
-POST http://localhost:3000/items HTTP/1.1
-content-type: application/json
 
-{
-  "charName": "mori",
-  "level": 1,
-  "money": 1000,
-  "createdAt": "02/02/2023",
-  "lastPlayed": "02/03/2023",
-  "owner": "tylertucker55",
-  "location": "1, 1, 1"
-}
-### PUT - update contact
-PUT http://localhost:3000/items/63d853e32ce97a2ac274bbd9 HTTP/1.1
-content-type: application/json
-
-{
-  "charName": "mori2",
-  "level": 1,
-  "money": 1000,
-  "createdAt": "02/02/2023",
-  "lastPlayed": "02/03/2023",
-  "owner": "tylertucker55",
-  "location": "1, 1, 1"
-}
-### DELETE item
-DELETE http://localhost:3000/items/63d855468ac64a480e3550cd HTTP/1.1
-
-### ----------------- PROD ------------------ ###
+### --------#--------- PROD -----------#------- ###
 
 ### GET default/index
-GET https://cse341-psei.onrender.com/
+GET https://rpg-pvd4.onrender.com
 ### GET 404
-GET http://cse341-psei.onrender.com/404
+GET https://rpg-pvd4.onrender.com/404
 ### GET API swagger docs
-GET http://cse341-psei.onrender.com/api-docs
+GET https://rpg-pvd4.onrender.com/api-docs
+
+### --------- Characters ----------
+
 ### GET all characters
-GET https://cse341-psei.onrender.com/characters
-### GET 1 contact
-GET https://cse341-psei.onrender.com/characters/63c0723ecba10a8bdcd6290f
-### POST - create contact
-POST http://cse341-psei.onrender.com/characters HTTP/1.1
+GET https://rpg-pvd4.onrender.com/characters
+### GET 1 character
+GET https://rpg-pvd4.onrender.com/characters/63def425bb166f3e221a6ef3
+### POST - create character (bad schema)
+POST https://rpg-pvd4.onrender.com/characters HTTP/1.1
+content-type: application/json
+
+{
+  "charName": "adasda",
+  "level": 71,
+  "money": 10000,
+  "createdAt": "02/02/2023",
+  "lastPlayed": "02/03/2023",
+  "owner": "webcooltz",
+  "location": "1, 1, 1"
+}
+### POST - create character (good schema)
+POST https://rpg-pvd4.onrender.com/characters HTTP/1.1
 content-type: application/json
 
 {
@@ -122,11 +153,11 @@ content-type: application/json
   "money": 1000,
   "createdAt": "02/02/2023",
   "lastPlayed": "02/03/2023",
-  "owner": "tylertucker55",
+  "owner": "webcooltz",
   "location": "1, 1, 1"
 }
-### PUT - update contact
-PUT http://cse341-psei.onrender.com/characters/63c0723ecba10a8bdcd6290f HTTP/1.1
+### PUT - update character
+PUT https://rpg-pvd4.onrender.com/characters/63faa4c937b5287f6aa81a37 HTTP/1.1
 content-type: application/json
 
 {
@@ -138,5 +169,64 @@ content-type: application/json
   "owner": "tylertucker55",
   "location": "1, 1, 1"
 }
-### DELETE contact
-DELETE http://cse341-psei.onrender.com/characters/63c0723ecba10a8bdcd6290f HTTP/1.1
+### DELETE character
+DELETE https://rpg-pvd4.onrender.com/characters/63d855468ac64a480e3550cd HTTP/1.1
+
+### --------- Users ----------
+
+### GET all users
+GET https://rpg-pvd4.onrender.com/users
+### GET 1 user
+GET https://rpg-pvd4.onrender.com/users/63fa97bc8624a3a4b548a6f2
+### POST - create user (bad password)
+POST https://rpg-pvd4.onrender.com/users HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "tdog",
+  "lastName": "turner",
+  "email": "tdog@dog.com",
+  "password": "dog"
+}
+### POST - create user (bad schema)
+POST https://rpg-pvd4.onrender.com/users HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "t",
+  "lastName": "turner",
+  "email": "tdog@dog.com",
+  "password": "Hell0world!"
+}
+### POST - create user (good password/schema)
+POST https://rpg-pvd4.onrender.com/users HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "tdog",
+  "lastName": "turner",
+  "email": "tdog@dog.com",
+  "password": "Hell0world!"
+}
+### PUT - update user (bad password)
+PUT https://rpg-pvd4.onrender.com/users/63faa1eedde84efcb205426b HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "kdog",
+  "lastName": "lamar",
+  "email": "kdog@dog.com",
+  "password": "dog1"
+}
+### PUT - update user (good password)
+PUT https://rpg-pvd4.onrender.com/users/63faa1eedde84efcb205426b HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "kdog",
+  "lastName": "lamar",
+  "email": "kdog@dog.com",
+  "password": "Hell0world!"
+}
+### DELETE user
+DELETE https://rpg-pvd4.onrender.com/users/63fab0337a6e1fd5a4d8d983 HTTP/1.1
