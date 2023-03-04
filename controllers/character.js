@@ -1,7 +1,7 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const Character = require('../models/character');
-const schemaValidator = require('../util/character-validation');
+const schemaValidator = require('../util/characterValidation');
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('characters').find();

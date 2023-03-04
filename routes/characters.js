@@ -1,8 +1,9 @@
 const express = require('express');
-var router = express.Router();
+const router = express.Router();
 const characterController = require('../controllers/character');
+const isAuth = require("../util/authToken");
 
-router.get('/', characterController.getAll);
+router.get('/', isAuth, characterController.getAll);
 
 router.get('/:id', characterController.getSingle);
 

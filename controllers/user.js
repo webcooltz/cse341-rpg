@@ -1,8 +1,8 @@
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 const User = require('../models/user');
-const passwordUtil = require('../util/password-validation');
-const schemaValidator = require('../util/user-validation');
+const passwordUtil = require('../util/passwordValidation');
+const schemaValidator = require('../util/userValidation');
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('users').find();
